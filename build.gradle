@@ -15,6 +15,7 @@ mainClassName = "$moduleName/com.kneelawk.modfinder.ModFinderAppKt"
 
 project.ext.tornadofxVersion = '1.7.20'
 project.ext.jfxVersion = '14'
+project.ext.guavaVersion = '28.2-jre'
 
 switch (OperatingSystem.current()) {
     case OperatingSystem.LINUX:
@@ -39,6 +40,15 @@ dependencies {
     implementation "org.openjfx:javafx-base:$jfxVersion:$jfxPlatform"
     implementation "org.openjfx:javafx-controls:$jfxVersion:$jfxPlatform"
     implementation "org.openjfx:javafx-graphics:$jfxVersion:$jfxPlatform"
+
+    implementation "com.google.guava:guava:$guavaVersion"
+}
+
+run {
+    moduleOptions {
+        addExports = ['javafx.graphics/com.sun.glass.ui': 'tornadofx']
+        addOpens = ['javafx.graphics/javafx.scene': 'tornadofx']
+    }
 }
 
 jlink {
