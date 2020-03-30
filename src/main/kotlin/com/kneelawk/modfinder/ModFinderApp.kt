@@ -53,6 +53,9 @@ class ModFinderView : View("Mod Finder") {
                     hGrow = Priority.ALWAYS
                 }
                 promptText = "Mod Name"
+                action {
+                    controller.searchForMod(modName.value)
+                }
             }
             button("Search") {
                 action {
