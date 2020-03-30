@@ -6,11 +6,6 @@ import java.time.format.DateTimeFormatter
 import javax.json.JsonObject
 
 /**
- * A set of addons retrieved from curse.
- */
-typealias Addons = ArrayList<Addon>
-
-/**
  * A single addon retrieved from curse.
  */
 data class Addon(

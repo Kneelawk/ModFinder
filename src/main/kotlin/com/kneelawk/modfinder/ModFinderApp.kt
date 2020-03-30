@@ -24,7 +24,15 @@ class ModFinderApp : App(ModFinderView::class)
  * Application main view.
  */
 class ModFinderView : View("Mod Finder") {
+
+    /**
+     * The mod finder controller that contains the logic for this ui.
+     */
     private val controller: ModFinderController by inject()
+
+    /**
+     * The property that contains the currently entered mod name filter.
+     */
     private val modName = SimpleStringProperty()
 
     init {
@@ -32,6 +40,9 @@ class ModFinderView : View("Mod Finder") {
         primaryStage.height = 500.0
     }
 
+    /**
+     * The root ui element of this view.
+     */
     override val root = vbox {
         padding = insets(10.0)
         spacing = 5.0
