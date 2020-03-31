@@ -40,6 +40,8 @@ dependencies {
     implementation "org.openjfx:javafx-base:$jfxVersion:$jfxPlatform"
     implementation "org.openjfx:javafx-controls:$jfxVersion:$jfxPlatform"
     implementation "org.openjfx:javafx-graphics:$jfxVersion:$jfxPlatform"
+    implementation "org.openjfx:javafx-web:$jfxVersion:$jfxPlatform"
+    implementation "org.openjfx:javafx-media:$jfxVersion:$jfxPlatform"
 
     implementation "com.google.guava:guava:$guavaVersion"
 }
@@ -52,7 +54,13 @@ run {
 }
 
 jlink {
-    extraDependenciesPrefixes.add("javafx")
+    addExtraDependencies("javafx")
+
+    options = ['--compress', '2', '--no-header-files', '--no-man-pages', '--add-modules', 'org.glassfish.java.json']
+
+    launcher {
+        jvmArgs = ['--add-exports', 'javafx.graphics/com.sun.glass.ui=com.kneelawk.merged.module', '--add-opens', 'javafx.graphics/javafx.scene=com.kneelawk.merged.module']
+    }
 
     jpackage {
         skipInstaller = true
