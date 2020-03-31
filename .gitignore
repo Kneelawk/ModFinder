@@ -2,5 +2,8 @@
 /.idea/
 /build/
 
+/local.properties
+
 /*.ipr
-/*.swp
+/*.iml
+*.swp
