@@ -18,7 +18,11 @@ fun main(args: Array<String>) {
 /**
  * Application main class.
  */
-class ModFinderApp : App(ModFinderView::class)
+class ModFinderApp : App(ModFinderView::class) {
+    init {
+        importStylesheet(javaClass.getResource("obsidian/obsidian.css").toExternalForm())
+    }
+}
 
 /**
  * Application main view.
